@@ -1,27 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
+import { PostDTO } from './_models/postDTO';
+import { PostService } from './_services/post.service';
+import { DatePipe } from '@angular/common'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'client';
-  users: any;
-
-  constructor(private http: HttpClient) {
-
+  constructor() {
   }
   ngOnInit(): void {
-    this.getUsers();
-  }
-  getUsers() {
-    this.http.get("http://localhost:54488/api/user").subscribe(res => {
-      this.users = res;
-    }, er => {
-      console.error(er);
-    }
-    );
   }
 }
