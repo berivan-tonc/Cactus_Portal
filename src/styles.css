@@ -1,8 +1,1 @@
 /* You can add global styles to this file, and also import other style files */
-html, body{
-    min-height: 100vh;
-    height: auto;
-    margin: 0;
-    background: rgb(68,189,231);
-    background: linear-gradient(0deg, rgba(68,189,231,1) 0%, rgba(209,93,228,1) 100%);
-}
