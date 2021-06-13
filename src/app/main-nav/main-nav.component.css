@@ -1,0 +1,7 @@
+.navbar-nav > .active > a {
+    color: rgb(70, 155, 155);
+    font-weight: 700;
+  }
+  .nav-item > a:hover {
+    color: aqua;
+  }

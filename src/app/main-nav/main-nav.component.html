@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default" style="height:60px">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="container">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item" [ngClass]="{'active':pageAc==1}">
+                    <a class="nav-link " routerLink="/" aria-current="page">Home
+                        <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" [ngClass]="{'active':pageAc==2}">
+                    <a class="nav-link " routerLink="/share" aria-current="page" href="#">Share
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item " [ngClass]="{'active':pageAc==4}">
+                    <a class="nav-link " routerLink="/explore" aria-current="page" href="#">Explore
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item " [ngClass]="{'active':pageAc==3}">
+                    <a class="nav-link " routerLink="/search" aria-current="page" href="#">Search
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+
+
+            </ul>
+            <div class="d-flex navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item " [ngClass]="{'active':pageAc==5}">
+                    <a class="nav-link " routerLink="/profile" aria-current="page" href="#">Profile
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="#">
+                        <mat-icon>exit_to_app</mat-icon>
+                    </a>
+                </li>
+            </div>
+        </div>
+    </div>
+</nav>
