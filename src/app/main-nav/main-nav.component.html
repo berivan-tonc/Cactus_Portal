@@ -30,7 +30,7 @@
             </ul>
             <div class="d-flex navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item " [ngClass]="{'active':pageAc==5}">
-                    <a class="nav-link " routerLink="/profile" aria-current="page" href="#">Profile
+                    <a class="nav-link " [routerLink]="['/profile',1]" aria-current="page" href="#">Profile
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>

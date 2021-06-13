@@ -1,5 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Post } from '../_models/post';
 import { PostDTO } from '../_models/postDTO';
 import { PostService } from '../_services/post.service';
 
@@ -12,37 +14,57 @@ export class PostComponent implements OnInit {
 
   title = 'client';
   posts: PostDTO[] = [];
-  points:number[]=[1,2,3];
+  loading: boolean = true;
+  points: number[] = [1, 2, 3];
   @Input() select?: string;
+  @Input() userId?: number;
 
-  constructor( private postService: PostService,public datepipe: DatePipe) {
+  constructor(private postService: PostService, private route: ActivatedRoute, private router: Router, public datepipe: DatePipe) {
 
   }
   ngOnInit(): void {
-    if(this.select=="search"){
+    this.route.paramMap.subscribe(x => {
+      if (x.get("userId") && this.select == "profile") { //sayfa parametresinden dolayı dinlemek gerekiyor
+        this.userId = Number(x.get("userId"));
+        this.getOwnPost(this.userId ? this.userId : 0);
+      }
+    });
+    this.selectPage();
+  }
+  selectPage() {
+    if (this.select == "search") {
       this.getSearch();
-    }else if(this.select=="home"){
-      this.getHomePost();
-    }else if(this.select=="profile"){
-      this.getOwnPost();
-    }
+    } else if (this.select == "home") {
+      this.getHomePost(this.userId ? this.userId : 0);
+    } 
   }
-  getSearch(){
+  getSearch() {
     this.postService.search('b', 1).subscribe((res: any) => {
-      this.posts=res;
+      this.posts = res;
+      this.loading = false;
     });
   }
-  getHomePost(){
-    this.postService.homePost(2).subscribe((res: any) => {
-      this.posts=res;
+  getHomePost(userId: number) {
+    this.postService.homePost(userId).subscribe((res: any) => {
+      this.posts = res;
+      this.loading = false;
     });
   }
-  getOwnPost(){
-    this.postService.ownPost(2).subscribe((res: any) => {
-      this.posts=res;
+  getOwnPost(userId: number) {
+    this.postService.ownPost(userId).subscribe((res: any) => {
+      this.posts = res;
+      this.loading = false;
+    });
+
+  }
+  onDelete(post: Post) {
+    post.status = false;
+    this.postService.onDelete(post).subscribe((res: any) => {
+      this.selectPage();
+      this.loading = false;
     });
   }
-  dateFormat(date:Date){
+  dateFormat(date: Date) {
     return this.datepipe.transform(date.toString(), 'dd.MM.yyyy HH:mm');
   }
 
