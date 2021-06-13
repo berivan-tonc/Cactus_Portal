@@ -1,0 +1,21 @@
+<div class="container" style="margin-top: 10px;">
+    <mat-card class="mat-card">
+        <mat-card-header class="mat-card-header">
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>İsim Soyisim</mat-card-title>
+            <mat-card-subtitle>
+                <ul>
+                    <li>Female</li>
+                    <li>2021/05/04</li>
+                </ul><a href="">Followers</a> <a href="" style="padding-left: 10px;">Following</a>
+            </mat-card-subtitle>
+            <div style="display: flex; margin-left: auto;">
+                <button style="margin-bottom: auto;">Follow</button>
+                <a href=""><mat-icon>settings</mat-icon></a>
+              </div>
+        </mat-card-header>
+        <mat-card-actions style="display:flex;">
+        </mat-card-actions>
+    </mat-card>
+</div>
+<app-post [select]="select"></app-post>
