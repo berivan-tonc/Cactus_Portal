@@ -1,1 +1,1 @@
-<app-post [select]="select"></app-post>
+<app-post *ngIf="itemId>0" [select]="select" [itemId]="itemId" [cat]="cat"></app-post>

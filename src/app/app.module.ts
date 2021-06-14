@@ -16,7 +16,13 @@ import { ExploreComponent } from './explore/explore.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SearchComponent } from './search/search.component';
 import { PostComponent } from './post/post.component';
-
+import { DialogComponent } from './share/dialog/dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { DialogSearchComponent } from './dialog-search/dialog-search.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +34,8 @@ import { PostComponent } from './post/post.component';
     ProfileComponent,
     SearchComponent,
     PostComponent,
+    DialogComponent,
+    DialogSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +44,13 @@ import { PostComponent } from './post/post.component';
     MatCardModule,
     MatIconModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDialogModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

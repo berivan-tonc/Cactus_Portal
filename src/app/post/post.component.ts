@@ -15,8 +15,9 @@ export class PostComponent implements OnInit {
   title = 'client';
   posts: PostDTO[] = [];
   loading: boolean = true;
-  points: number[] = [1, 2, 3];
   @Input() select?: string;
+  @Input() itemId?: number;
+  @Input() cat?: string;
   @Input() userId?: number;
 
   constructor(private postService: PostService, private route: ActivatedRoute, private router: Router, public datepipe: DatePipe) {
@@ -39,7 +40,7 @@ export class PostComponent implements OnInit {
     } 
   }
   getSearch() {
-    this.postService.search('b', 1).subscribe((res: any) => {
+    this.postService.search(String(this.cat), Number(this.itemId)).subscribe((res: any) => {
       this.posts = res;
       this.loading = false;
     });

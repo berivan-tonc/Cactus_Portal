@@ -70,4 +70,18 @@ export class PostService {
         )
       );
   }
+  share(post: Post): any {
+    const url = this.baseUrl;
+    return this.http.post<Post[]>(url,post)
+      .pipe(
+        map((response) => {
+          return response;
+        }),
+        catchError((err, caught) => {
+          console.error(err);
+          throw err;
+        }
+        )
+      );
+  }
 }

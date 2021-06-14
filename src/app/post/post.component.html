@@ -20,8 +20,9 @@
             </div>
           </mat-card-header>
           <p>
-            {{ post.book.title }}-{{ post.book.author }} - {{
-            post.post.category=="b"?"read":post.post.category=="m"?"listened.": "watched." }}
+            {{ post.post.category=="b"? post.book.title: post.post.category=="m"? post.music.title: post.movie.title }}-
+            {{ post.post.category=="b"? post.book.author: post.post.category=="m"? post.music.singer: post.movie.year }} - 
+            {{post.post.category=="b"?"read.":post.post.category=="m"?"listened.": "watched." }}
           </p>
           <mat-card-content class="example-card-content">
             <p>

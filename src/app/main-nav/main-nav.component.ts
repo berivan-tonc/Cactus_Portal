@@ -30,7 +30,7 @@ export class MainNavComponent implements OnInit {
           this.pageAc = MainPage.explore;
         } else if (x.url.indexOf("profile") > 0) { // koşul gelecek 
           this.pageAc = MainPage.profile;
-        } 
+        }
         else {
           this.pageAc = MainPage.home;
         }
@@ -39,7 +39,11 @@ export class MainNavComponent implements OnInit {
     }
     )
   }
-
+  refreshComponent() {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
+      this.router.navigate(["/search"])
+    );
+  }
   ngOnInit(): void {
   }
 

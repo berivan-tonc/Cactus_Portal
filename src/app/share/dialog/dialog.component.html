@@ -1,0 +1,60 @@
+<h1 mat-dialog-title>Share</h1>
+<div mat-dialog-content>
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="onOk()">
+            <div class="form-group needs-validation">
+                <label for="cat">Category</label>
+                <select class="form-select" (change)="getData($event)" formControlName="cat"> 
+                    <option value='b'>Book</option>
+                    <option value='m'>Music</option>
+                    <option value='f'>Movie</option>
+                </select>
+                <div *ngIf="submitted && f.cat.errors" class="invalid-feedback  d-block">
+                    <div *ngIf="f.cat.errors.required">Required</div>
+                </div>
+            </div>
+            <div class="form-group" >
+                <label for="search">Search</label>
+                <input style="width: 500px;" [readonly]="flagSearch" type="text" aria-label="Search" formControlName="search" class="form-control" 
+                    [ngClass]="{ 'is-invalid': submitted && f.search.errors }" [matAutocomplete]="auto">
+                
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="getOptionText">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{option.title}} - {{f.cat.value=="b"?option.author:f.cat.value=="m"?option.singer:option.year}}
+                    </mat-option>
+                </mat-autocomplete>
+                <mat-error *ngIf="submitted && f.search.hasError('required')">
+                    Required
+                </mat-error>
+                <mat-error *ngIf="submitted && (!f.search.hasError('required')&&f.search.hasError('incorrect'))">
+                    Incorrect
+                </mat-error>
+            </div>
+            
+            <div class="form-group">
+                <label for="comment">Comment</label>
+                <textarea class="form-control" formControlName="comment" [ngClass]="{ 'is-invalid': submitted && f.comment.errors }"></textarea>
+                <div *ngIf="submitted && f.comment.errors" class="invalid-feedback">
+                    <div *ngIf="f.comment.errors.required">Required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="point">Point</label>
+                <select class="form-select " formControlName="point">
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                </select>
+                <div *ngIf="submitted && f.point.errors" class="invalid-feedback d-block">
+                    <div *ngIf="f.point.errors.required">Required</div>
+                </div>
+            </div>
+           
+
+        </form>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onOk()" cdkFocusInitial>Ok</button>
+    <button mat-button [mat-dialog-close]="" (click)="onNoClick()" cdkFocusInitial>Close</button>
+</div>
