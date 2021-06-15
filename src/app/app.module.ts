@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule}from '@angular/common/http'
+import { ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule, HTTP_INTERCEPTORS}from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -16,8 +17,8 @@ import { ExploreComponent } from './explore/explore.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SearchComponent } from './search/search.component';
 import { PostComponent } from './post/post.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+//import { LoginComponent } from './login/login.component';
+//import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +31,9 @@ import { RegisterComponent } from './register/register.component';
     ProfileComponent,
     SearchComponent,
     PostComponent,
-    LoginComponent,
-    RegisterComponent,
+   //LoginComponent,
+   // RegisterComponent, 
+   
   ],
   imports: [
     BrowserModule,
@@ -40,9 +42,14 @@ import { RegisterComponent } from './register/register.component';
     MatCardModule,
     MatIconModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    //  
+    ReactiveFormsModule,
+
   ],
-  providers: [DatePipe],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
