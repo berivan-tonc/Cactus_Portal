@@ -41,4 +41,8 @@ export class AuthenticationService {
         this.userSubject.next(null);
         this.router.navigate(['/login']);
     }
+
+    register(user: User) {
+        return this.http.post(`${environment.apiUrl}/user/register`, user);
+    }
 }

@@ -20,7 +20,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BasicAuthInterceptor } from './_helpers/basic-auth.interceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
-//import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
     SearchComponent,
     PostComponent,
     LoginComponent,
-   // RegisterComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

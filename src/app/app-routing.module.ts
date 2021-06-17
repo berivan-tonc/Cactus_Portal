@@ -10,6 +10,7 @@ import { PostComponent } from './post/post.component';
 
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './_helpers/auth.guard';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,7 @@ const routes: Routes = [
     ]
   },
   { path: 'login', component:LoginComponent},
+  { path: 'register', component:RegisterComponent},
   { path: '**', redirectTo: ''}
 
 ];
