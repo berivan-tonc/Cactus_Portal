@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ExploreComponent } from './explore/explore.component';
 import { HomeComponent } from './home/home.component';
@@ -8,10 +8,12 @@ import { SearchComponent } from './search/search.component';
 import { ShareComponent } from './share/share.component';
 import { PostComponent } from './post/post.component';
 
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './_helpers/auth.guard';
 
 const routes: Routes = [
   {
-    path: "", component: LayoutComponent,
+    path: "", component: LayoutComponent, canActivate: [AuthGuard],
     children: [
       { path: "", redirectTo: "/home", pathMatch: 'full'},
       { path: "home", component: HomeComponent },
@@ -22,6 +24,9 @@ const routes: Routes = [
       { path: "post", component: PostComponent },
     ]
   },
+  { path: 'login', component:LoginComponent},
+  { path: '**', redirectTo: ''}
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
