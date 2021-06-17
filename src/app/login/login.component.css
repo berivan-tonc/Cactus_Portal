@@ -37,7 +37,8 @@ body{
     width: 280px;
     border-color: rgba(209,93,228,1);
   }
-  .box input[type = "submit"]{
+
+  .box button{
     border:0;
     background: none;
     display: block;
@@ -51,7 +52,7 @@ body{
     transition: 0.25s;
     cursor: pointer;
   }
-  .box input[type = "submit"]:hover{
+  .box button:hover{
     background: rgba(209,93,228,1);
     border: 2px solid rgba(209,93,228,1);
   }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { AuthenticationService } from '../_services/authentication.service';
+
 enum MainPage {
   home = 1,
   share = 2,
@@ -14,8 +16,10 @@ enum MainPage {
 })
 export class MainNavComponent implements OnInit {
   pageAc: MainPage | undefined;
-  constructor(private router: Router) {
-
+  constructor(
+    private router: Router,
+    private authenticationService: AuthenticationService) {
+    
     this.router.events.subscribe(x => {
       if (x instanceof NavigationEnd) {
         if (x.url.indexOf("home") > 0) {
@@ -41,6 +45,10 @@ export class MainNavComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  logout() {
+    this.authenticationService.logout();
   }
 
 }
