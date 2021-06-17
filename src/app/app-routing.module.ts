@@ -7,8 +7,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { SearchComponent } from './search/search.component';
 import { ShareComponent } from './share/share.component';
 import { PostComponent } from './post/post.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
+//import { RegisterComponent } from './register/register.component';
+//import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './_helpers';
 
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './_helpers/auth.guard';

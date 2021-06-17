@@ -22,6 +22,7 @@ import { BasicAuthInterceptor } from './_helpers/basic-auth.interceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { RegisterComponent } from './register/register.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,8 +34,9 @@ import { RegisterComponent } from './register/register.component';
     ProfileComponent,
     SearchComponent,
     PostComponent,
-    LoginComponent,
-    RegisterComponent,
+   //LoginComponent,
+   // RegisterComponent, 
+   
   ],
   imports: [
     BrowserModule,
@@ -51,6 +53,7 @@ import { RegisterComponent } from './register/register.component';
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

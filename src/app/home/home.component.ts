@@ -4,6 +4,9 @@ import { PostDTO } from '../_models/postDTO';
 import { PostService } from '../_services/post.service';
 import { DatePipe } from '@angular/common'
 
+import { User } from '../_models';
+import { AccountService } from '../_services/account.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,10 +14,11 @@ import { DatePipe } from '@angular/common'
 })
 export class HomeComponent implements OnInit {
   select="home";
+  user: User;
 
-  constructor() {
-
-  }
+  constructor(private accountService: AccountService) {
+    this.user = this.accountService.userValue;
+}
   ngOnInit(): void {
   }
 }

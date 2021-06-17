@@ -22,12 +22,14 @@ export class RegisterComponent implements OnInit {
   submitted = false;
   form: FormGroup;
 
+
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private AuthenticationService: AuthenticationService
   ) { }
+
 
   ngOnInit() {
     this.form = this.formBuilder.group({

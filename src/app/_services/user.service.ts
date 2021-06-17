@@ -12,3 +12,4 @@ export class UserService {
         return this.http.get<User[]>(`${environment.apiUrl}/user`);
     }
 }
+
