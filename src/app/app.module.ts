@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule, HTTP_INTERCEPTORS}from '@angular/common/http'
+import {HttpClientModule, HTTP_INTERCEPTORS }from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -17,8 +16,12 @@ import { ExploreComponent } from './explore/explore.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SearchComponent } from './search/search.component';
 import { PostComponent } from './post/post.component';
-//import { LoginComponent } from './login/login.component';
-//import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BasicAuthInterceptor } from './_helpers/basic-auth.interceptor';
+import { ErrorInterceptor } from './_helpers/error.interceptor';
+import { RegisterComponent } from './register/register.component';
+
 
 @NgModule({
   declarations: [
@@ -43,13 +46,14 @@ import { PostComponent } from './post/post.component';
     MatIconModule,
     MatSelectModule,
     MatFormFieldModule,
-    //  
     ReactiveFormsModule,
+    FormsModule
+  ],
+  providers: [DatePipe, 
+    { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+],
 
-  ],
-  providers: [
-    DatePipe
-  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
