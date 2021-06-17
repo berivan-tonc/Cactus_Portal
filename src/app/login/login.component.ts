@@ -3,8 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { AuthenticationService } from '../_services/authentication.service';
+
 
 @Component({
   selector: 'app-login',
@@ -61,6 +61,7 @@ export class LoginComponent implements OnInit {
                   this.error = error;
                   this.loading = false;
               });
+
   }
 
 }

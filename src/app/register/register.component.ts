@@ -6,6 +6,7 @@ import { first } from 'rxjs/operators';
 
 import { AuthenticationService } from '../_services/authentication.service';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
