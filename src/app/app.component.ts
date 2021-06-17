@@ -23,7 +23,5 @@ export class AppComponent {
       this.authenticationService.user.subscribe(x => this.user = x);
   }
 
-  logout() {
-      this.authenticationService.logout();
-  }
+
 }
