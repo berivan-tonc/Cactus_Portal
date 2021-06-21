@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, } from "rxjs";
 import { map, catchError } from 'rxjs/operators';
+import { Post } from "../_models/post";
 import { PostDTO } from "../_models/postDTO";
 
 @Injectable({
@@ -55,6 +56,47 @@ export class PostService {
         )
       );
   }
-
-
+  onDelete(post: Post): any {
+    const url = this.baseUrl;
+    return this.http.put<Post[]>(url,post)
+      .pipe(
+        map((response) => {
+          return response;
+        }),
+        catchError((err, caught) => {
+          console.error(err);
+          throw err;
+        }
+        )
+      );
+  }
+  share(post: Post): any {
+    const url = this.baseUrl;
+    return this.http.post<Post[]>(url,post)
+      .pipe(
+        map((response) => {
+          return response;
+        }),
+        catchError((err, caught) => {
+          console.error(err);
+          throw err;
+        }
+        )
+      );
+  }
+  
+  explore(cat:string): any{
+    const url = this.baseUrl + "explore?cat=" + cat
+    return this.http.get<string[]>(url)
+    .pipe(
+      map((response) => {
+        return response;
+      }),
+      catchError((err, caught) => {
+        console.error(err);
+        throw err;
+      }
+      )
+    );
+  }
 }
