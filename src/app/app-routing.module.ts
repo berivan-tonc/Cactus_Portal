@@ -18,7 +18,7 @@ const routes: Routes = [
     children: [
       { path: "", redirectTo: "/home", pathMatch: 'full'},
       { path: "home", component: HomeComponent },
-      { path: "profile", component: ProfileComponent },
+      { path: "profile/:userId", component: ProfileComponent },
       { path: "share", component: ShareComponent },
       { path: "search", component: SearchComponent },
       { path: "explore", component: ExploreComponent },
