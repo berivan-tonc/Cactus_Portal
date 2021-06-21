@@ -1,1 +1,29 @@
-<p>explore works!</p>
+<div class="card-body">
+    <form [formGroup]="form">
+        <div class="form-group needs-validation">
+            <label for="cat">Category</label>
+            <select class="form-select" (ngModelChange)="onItemSelected($event)" formControlName="categorySelector"> 
+                <option value='b'>Book</option>
+                <option value='m'>Music</option>
+                <option value='f'>Movie</option>
+            </select>
+        </div>
+        <div class='container'>
+            <table class='table table-trapped'>
+                <thead>
+                    <tr>
+                        <th>Top</th>
+                        <th>Title</th>
+                    </tr>
+                </thead> 
+        
+                <tbody>
+                    <tr *ngFor="let data of items; let i = index">
+                        <th>{{i+1}}</th>
+                        <td>{{data}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+</div>

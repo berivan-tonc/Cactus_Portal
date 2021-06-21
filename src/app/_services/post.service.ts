@@ -84,4 +84,19 @@ export class PostService {
         )
       );
   }
+  
+  explore(cat:string): any{
+    const url = this.baseUrl + "explore?cat=" + cat
+    return this.http.get<string[]>(url)
+    .pipe(
+      map((response) => {
+        return response;
+      }),
+      catchError((err, caught) => {
+        console.error(err);
+        throw err;
+      }
+      )
+    );
+  }
 }
