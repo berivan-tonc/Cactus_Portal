@@ -11,10 +11,12 @@ import { DatePipe } from '@angular/common'
 })
 export class HomeComponent implements OnInit {
   select="home";
+  userId=0;
 
   constructor() {
 
   }
   ngOnInit(): void {
+    this.userId=JSON.parse(localStorage.getItem('user'))["id"];
   }
 }

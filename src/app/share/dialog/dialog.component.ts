@@ -42,11 +42,11 @@ export class DialogComponent implements OnInit {
       this.post.book_id = this.f.cat.value == "b" ? this.f.search.value.id : null;
       this.post.point = +this.f.point.value;
       this.post.status = true;
-      this.post.user_id = 1; // giriş yapan kişi
+      this.post.user_id = JSON.parse(localStorage.getItem('user'))["id"]; 
       this.post.category = this.f.cat.value;
       this.post.comment = this.f.comment.value;
       this.postService.share(this.post).subscribe((res: any) => {
-        this.router.navigate(['/profile', 1]); // giriş yapan kullanıcı olacak
+        this.router.navigate(['/profile', JSON.parse(localStorage.getItem('user'))["id"]]); 
         this.dialogRef.close();
       })
     }

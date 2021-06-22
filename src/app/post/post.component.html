@@ -14,7 +14,7 @@
                 }}</a></mat-card-title>
             <mat-card-subtitle>{{ dateFormat(post.post.editdate) }}</mat-card-subtitle>
             <div style="display: flex; margin-left: auto;">
-              <button (click)="onDelete(post.post)">
+              <button *ngIf="controlButton(post.user.id)" (click)="onDelete(post.post)">
                 <mat-icon>delete_forever</mat-icon>
               </button>
             </div>

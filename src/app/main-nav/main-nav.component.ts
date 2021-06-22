@@ -16,6 +16,7 @@ enum MainPage {
 })
 export class MainNavComponent implements OnInit {
   pageAc: MainPage | undefined;
+  userId:number=0;
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService) {
@@ -49,6 +50,7 @@ export class MainNavComponent implements OnInit {
     );
   }
   ngOnInit(): void {
+    this.userId=JSON.parse(localStorage.getItem('user'))["id"];
   }
 
   logout() {

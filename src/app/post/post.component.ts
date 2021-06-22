@@ -37,6 +37,8 @@ export class PostComponent implements OnInit {
       this.getSearch();
     } else if (this.select == "home") {
       this.getHomePost(this.userId ? this.userId : 0);
+    } else if (this.select == "profile") {
+      this.getOwnPost(this.userId ? this.userId : 0);
     } 
   }
   getSearch() {
@@ -64,6 +66,10 @@ export class PostComponent implements OnInit {
       this.selectPage();
       this.loading = false;
     });
+  }
+  controlButton(id: number) {
+    return JSON.parse(localStorage.getItem('user'))["id"]==id;
+    
   }
   dateFormat(date: Date) {
     return this.datepipe.transform(date.toString(), 'dd.MM.yyyy HH:mm');

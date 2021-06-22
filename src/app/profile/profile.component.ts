@@ -13,7 +13,7 @@ import { UserService } from '../_services/user.service';
 })
 export class ProfileComponent implements OnInit {
   select = "profile";
-  userId: number = 1;
+  userId: number = 0;
   user: User = new User
   fl: Follow = new Follow;
   buttonControl: boolean = false;
@@ -27,8 +27,7 @@ export class ProfileComponent implements OnInit {
         this.userId = Number(params.get("userId"));
         this.userService.userInfo(this.userId).subscribe((res: any) => {
           this.user = res;
-          // user, giriş yapan kişi mi kontrol et. değilse
-          this.followService.controlFollow(1, this.user.id).subscribe((res: any) => {
+          this.followService.controlFollow(JSON.parse(localStorage.getItem('user'))["id"], this.user.id).subscribe((res: any) => {
             if (res != null) {
               this.buttonControl = true;
               this.followId=res.id;
@@ -48,13 +47,16 @@ export class ProfileComponent implements OnInit {
       })
 
     } else { // takip et
-      this.fl.following_id = 1;//giriş yapan
+      this.fl.following_id = JSON.parse(localStorage.getItem('user'))["id"];
       this.fl.followed_id = profileId;
       this.followService.follow(this.fl).subscribe((res: any) => {
         this.buttonControl = true;
         this.followId=res.id;
       })
     }
+  }
+  cntrlButton(){
+    return this.userId!=JSON.parse(localStorage.getItem('user'))["id"]
   }
   dateFormat(date: Date) {
     return date ? this.datepipe.transform(date.toString(), 'dd.MM.yyyy') : "";

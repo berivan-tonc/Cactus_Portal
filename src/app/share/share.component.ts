@@ -21,7 +21,7 @@ export class ShareComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(res => {
-      this.router.navigate(['/profile', 1]); // giriş yapan kullanıcı olacak
+      this.router.navigate(['/profile', JSON.parse(localStorage.getItem('user'))["id"]]); 
     });
   }
 }

@@ -30,9 +30,10 @@ export class SearchComponent implements OnInit {
     dialogRef.afterClosed().subscribe(res => {
       if (res == undefined) {
         this.router.navigate(['/home']);
+      }else{
+        this.cat = res.cat;
+        this.itemId = res.itemId;
       }
-      this.cat = res.cat;
-      this.itemId = res.itemId;
 
     });
   }

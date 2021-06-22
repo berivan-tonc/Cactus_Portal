@@ -10,7 +10,7 @@
                 </ul><a href="">Followers</a> <a href="" style="padding-left: 10px;">Following</a>
             </mat-card-subtitle>
             <div style="display: flex; margin-left: auto;">
-                <button style="margin-bottom: auto;" (click)="onFollow(user.id)">{{buttonControl==true?"Unfollow":"Follow"}}</button>
+                <button *ngIf="cntrlButton()" style="margin-bottom: auto;" (click)="onFollow(user.id)">{{buttonControl==true?"Unfollow":"Follow"}}</button>
                 <a href=""><mat-icon>settings</mat-icon></a>
               </div>
         </mat-card-header>
