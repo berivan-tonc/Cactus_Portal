@@ -61,7 +61,7 @@ export class DialogEditProfileComponent implements OnInit {
     .pipe()
     .subscribe({
         next: () => {
-            this.router.navigate(['/profile'+this.userId], { relativeTo: this.route });
+            this.router.navigate(['/profile', this.userId]); 
         },
         error: error => {
             this.loading = false;

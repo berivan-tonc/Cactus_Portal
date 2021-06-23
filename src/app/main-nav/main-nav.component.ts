@@ -33,7 +33,9 @@ export class MainNavComponent implements OnInit {
         }
         else if (x.url.indexOf("explore") > 0) {
           this.pageAc = MainPage.explore;
-        } else if (x.url.indexOf("profile") > 0) { // koşul gelecek 
+        } else if (x.url.indexOf("profile") > 0) { 
+          this.pageAc = MainPage.profile;
+        }else if (x.url.indexOf("edit") > 0) { 
           this.pageAc = MainPage.profile;
         }
         else {
