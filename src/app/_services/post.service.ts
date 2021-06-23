@@ -27,6 +27,20 @@ export class PostService {
         )
       );
   }
+  point(cat: string, itemId: number): any {
+    const url = this.baseUrl + "point?cat=" + cat + "&itemId=" + itemId.toString();
+    return this.http.get<any>(url)
+      .pipe(
+        map((response) => {
+          return response;
+        }),
+        catchError((err, caught) => {
+          console.error(err);
+          throw err;
+        }
+        )
+      );
+  }
 
   homePost(userId: number): any {
     const url = this.baseUrl + "getbyFollowedId?id=" + userId;

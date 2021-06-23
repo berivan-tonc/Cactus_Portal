@@ -34,7 +34,7 @@ export class DialogSearchComponent implements OnInit {
     if (this.form.invalid) {
       return;
     } else {
-      this.dialogRef.close({ cat: this.f.cat.value,itemId: this.f.search.value.id });
+      this.dialogRef.close({ cat: this.f.cat.value,itemId: this.f.search.value.id,item: this.f.search.value.title });
     }
   }
   get f() { return this.form.controls; }
@@ -54,19 +54,20 @@ export class DialogSearchComponent implements OnInit {
     if (e.target.value == "b") {
       this.dataService.getBook().subscribe((res: any) => {
         this.options = res;
-        this._filter("")
+        this.f.search.setValue("")
       })
 
     } else if (e.target.value == "m") {
       this.dataService.getMusic().subscribe((res: any) => {
         this.options = res;
-        this._filter("")
+        this.f.search.setValue("")
+
       })
 
     } else if (e.target.value == "f") {
       this.dataService.getMovie().subscribe((res: any) => {
         this.options = res;
-        this._filter("")
+        this.f.search.setValue("")
       })
     }
   }
