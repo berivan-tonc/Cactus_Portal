@@ -9,7 +9,8 @@
       <li *ngFor="let post of posts">
         <mat-card class="mat-card">
           <mat-card-header class="mat-card-header">
-            <div mat-card-avatar class="example-header-image"></div>
+            <div mat-card-avatar class="example-header-image" 
+            style="background-image:url('https://st3.depositphotos.com/1156795/34887/v/600/depositphotos_348878322-stock-illustration-profile-placeholder-image-gray-silhouette.jpg')"></div>
             <mat-card-title><a [routerLink]="['/profile',post.user.id]" style="color: black;">{{ post.user.firstname }} {{ post.user.lastname
                 }}</a></mat-card-title>
             <mat-card-subtitle>{{ dateFormat(post.post.editdate) }}</mat-card-subtitle>
