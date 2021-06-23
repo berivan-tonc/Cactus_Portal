@@ -32,13 +32,14 @@ export class DialogEditProfileComponent implements OnInit {
 
   ngOnInit() {
     this.userId = JSON.parse(localStorage.getItem('user'))["id"]
-    this.form = this.formBuilder.group({
-        firstName: [this.user.firstname, Validators.required],
-        lastName: [this.user.lastname, Validators.required],
-    });
+  
 
     this.userService.userInfo(this.userId).subscribe((res: any) => {
       this.user = res;
+      this.form = this.formBuilder.group({
+        firstName: [this.user.firstname, Validators.required],
+        lastName: [this.user.lastname, Validators.required],
+    });
     })
   }
 
