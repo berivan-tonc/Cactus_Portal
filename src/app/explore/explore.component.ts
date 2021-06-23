@@ -30,7 +30,6 @@ export class ExploreComponent implements OnInit {
     this.postService.explore(String(cat)).subscribe((res: any) => {
       this.items = res;
     });
-    console.log(this.items)
   }
 
 }

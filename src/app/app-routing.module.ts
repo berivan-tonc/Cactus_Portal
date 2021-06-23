@@ -11,6 +11,7 @@ import { PostComponent } from './post/post.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './_helpers/auth.guard';
 import { RegisterComponent } from './register/register.component';
+import { DialogEditProfileComponent } from './profile/dialog-edit-profile/dialog-edit-profile.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: "search", component: SearchComponent },
       { path: "explore", component: ExploreComponent },
       { path: "post", component: PostComponent },
+      { path: "edit", component: DialogEditProfileComponent},
     ]
   },
   { path: 'login', component:LoginComponent},

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule, HTTP_INTERCEPTORS }from '@angular/common/http'
+import {HttpClientModule, HTTP_INTERCEPTORS }from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -8,7 +8,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import { DatePipe } from '@angular/common';
 import { LayoutComponent } from './layout/layout.component';
-import { MainNavComponent } from './main-nav/main-nav.component'
+import { MainNavComponent } from './main-nav/main-nav.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ShareComponent } from './share/share.component';
@@ -27,6 +27,9 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { DialogSearchComponent } from './dialog-search/dialog-search.component';
+import { DialogFollowersComponent } from './profile/dialog-followers/dialog-followers.component';
+import { DialogFollowingComponent } from './profile/dialog-following/dialog-following.component';
+import { DialogEditProfileComponent } from './profile/dialog-edit-profile/dialog-edit-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +44,10 @@ import { DialogSearchComponent } from './dialog-search/dialog-search.component';
     LoginComponent,
     RegisterComponent,
     DialogComponent,
-    DialogSearchComponent
+    DialogSearchComponent,
+    DialogFollowersComponent,
+    DialogFollowingComponent,
+    DialogEditProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -58,10 +64,10 @@ import { DialogSearchComponent } from './dialog-search/dialog-search.component';
     FormsModule,
     MatAutocompleteModule
   ],
-  providers: [DatePipe, 
+  providers: [DatePipe,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
