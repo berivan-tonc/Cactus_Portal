@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IgxListComponent, IgxToastComponent } from 'igniteui-angular';
 import { User } from 'src/app/_models/user';
 import { UserService } from 'src/app/_services/user.service';
 
