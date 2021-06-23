@@ -7,11 +7,14 @@
                 <ul>
                     <li>{{ user.gender==true?"female":"male" }}</li>
                     <li>{{ dateFormat(user.birthday) }}</li>
-                </ul><a href="">Followers</a> <a href="" style="padding-left: 10px;">Following</a>
+                </ul>
+                <button mat-button (click)="openDialogFollowers()">Followers</button>
+                <button mat-button (click)="openDialogFollowing()">Following</button>
+               
             </mat-card-subtitle>
             <div style="display: flex; margin-left: auto;">
                 <button *ngIf="cntrlButton()" style="margin-bottom: auto;" (click)="onFollow(user.id)">{{buttonControl==true?"Unfollow":"Follow"}}</button>
-                <a href=""><mat-icon>settings</mat-icon></a>
+                <a href="/edit"><mat-icon>settings</mat-icon></a>
               </div>
         </mat-card-header>
         <mat-card-actions style="display:flex;">

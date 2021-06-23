@@ -5,6 +5,10 @@ import { Follow } from '../_models/follow';
 import { User } from '../_models/user';
 import { FollowService } from '../_services/follow.service';
 import { UserService } from '../_services/user.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogFollowersComponent } from './dialog-followers/dialog-followers.component';
+import { DialogFollowingComponent } from './dialog-following/dialog-following.component';
+import { DialogEditProfileComponent } from './dialog-edit-profile/dialog-edit-profile.component';
 
 @Component({
   selector: 'app-profile',
@@ -19,7 +23,12 @@ export class ProfileComponent implements OnInit {
   buttonControl: boolean = false;
   followId!: number;
 
-  constructor(private router: Router, private followService: FollowService, private route: ActivatedRoute, private userService: UserService, public datepipe: DatePipe) { }
+  constructor(private router: Router, 
+    private followService: FollowService, 
+    private route: ActivatedRoute, 
+    private userService: UserService, 
+    public datepipe: DatePipe,
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -61,5 +70,22 @@ export class ProfileComponent implements OnInit {
   dateFormat(date: Date) {
     return date ? this.datepipe.transform(date.toString(), 'dd.MM.yyyy') : "";
   }
+
+  openDialogFollowers() {
+    const dialogRef = this.dialog.open(DialogFollowersComponent, {width:'600px'
+  });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  openDialogFollowing() {
+    const dialogRef = this.dialog.open(DialogFollowingComponent, {width:'600px'
+  });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
 
 }

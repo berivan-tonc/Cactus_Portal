@@ -1,0 +1,11 @@
+<h2 mat-dialog-title >Followers</h2>
+<mat-dialog-content class="mat-typography">
+    <ul class="dia">
+        <li *ngFor="let item of items">
+          <span class="badge">{{item.firstname}} {{item.lastname}}</span> 
+        </li>
+      </ul>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

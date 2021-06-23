@@ -6,6 +6,7 @@
   </head>
   <body>
     <form class="box" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <h1>Login</h1>
       <div class="form-group">
           <input type="text" formControlName="email" class="form-control" [placeholder]="placeholderEmail" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
           <div *ngIf="submitted && f.email.errors" class="invalid-feedback">

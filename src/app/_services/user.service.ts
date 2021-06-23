@@ -27,5 +27,46 @@ export class UserService {
   getAll() {
     return this.http.get<User[]>(`${environment.apiUrl}/user`);
 }
-
+getFollowedUsersList(userId: number):any{
+  const url = this.baseUrl + "getbyFollowedId?id=" + userId;
+  return this.http.get<User[]>(url)
+  .pipe(
+    map((response) => {
+      return response;
+    }),
+    catchError((err, caught) => {
+      console.error(err);
+      throw err;
+    }
+    )
+  );
+}
+getFollowingUsersList(userId: number):any{
+  const url = this.baseUrl + "getbyFollowingId?id=" + userId;
+  return this.http.get<User[]>(url)
+  .pipe(
+    map((response) => {
+      return response;
+    }),
+    catchError((err, caught) => {
+      console.error(err);
+      throw err;
+    }
+    )
+  );
+}
+update(user: User):any{
+  const url = this.baseUrl;
+  return this.http.put(url,user)
+  .pipe(
+    map((response) => {
+      return response;
+    }),
+    catchError((err, caught) => {
+      console.error(err);
+      throw err;
+    }
+    )
+  );
+}
 }
